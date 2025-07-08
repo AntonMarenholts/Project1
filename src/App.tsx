@@ -6,6 +6,8 @@ import ThankYou from "./components/ThankYou/ThankYou";
 import Goodbye from "./components/Goodbye/Goodbye";
 import ProfileCard from "./components/ProfileCard/ProfileCard";
 import { Counter } from "./components/Counter/Counter";
+import PersonalGreeting from "./components/PersonalGreeting/PersonalGreeting";
+import WeightCalculator from "./components/WeightCalculator/WeightCalculator";
 
 function App() {
   
@@ -13,9 +15,12 @@ function App() {
     <>
       <Greeting name={"Vasiliy"} />
       <Greeting name={"Pety"} age={18} />
+      <PersonalGreeting />
       <Goodbye />
+      <WeightCalculator />
       <Counter />
       <Counter />
+      
       
       <ProfileCard
       avatar="https://masterpiecer-images.s3.yandex.net/d50dc9569a3b11eea2d7c2292fe7483c:upscaled"
