@@ -14,6 +14,11 @@ export default function GenderDetermination() {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
+  const capitalizeFirstLetter = (string: string) => {
+    if (!string) return string;
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  };
+
   async function fetchGender() {
     if (!name.trim()) {
       setError("Please enter a name.");
@@ -51,53 +56,51 @@ export default function GenderDetermination() {
   }
 
   return (
-    <div
-      style={{
-        border: "1px solid black",
-        padding: "20px",
-        margin: "20px",
-        borderRadius: "8px",
-      }}
-    >
-      <h2>Determining gender by name</h2>
-      <input
-        type="text"
-        placeholder="Enter you name...."
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        disabled={loading}
-      />
-      <button onClick={fetchGender} disabled={loading}>
-        {loading ? "Load..." : "Define"}
-      </button>
+  <div
+    style={{
+      border: "1px solid black",
+      padding: "20px",
+      margin: "20px",
+      borderRadius: "8px",
+    }}
+  >
+    <h2>Determining gender by name</h2>
+    <input
+      type="text"
+      placeholder="Enter you name...."
+      value={name}
+      onChange={(e) => setName(e.target.value)}
+      disabled={loading}
+    />
+    <button onClick={fetchGender} disabled={loading}>
+      {loading ? "Load..." : "Define"}
+    </button>
 
-      {loading && <p>Loading...</p>}
+    {loading && <p>Loading...</p>}
+    {error && <p style={{ color: "red" }}>{error}</p>}
 
-      {error && <p style={{ color: "red" }}>{error}</p>}
-
-      {genderData && (
-        <div>
-          <h3>Results:</h3>
+    {genderData && (
+      <div>
+        <h3>Results:</h3>
+       
+        <ul style={{ listStyleType: "none", paddingLeft: 0 }}>
+          <li>
+            
+            <strong>Name:</strong> {capitalizeFirstLetter(genderData.name)}
+          </li>
           
-            <li>
-              <strong>Name:</strong> {genderData.name}
-            </li>
-            <li>
-              <strong>Gender:</strong> {genderData.gender}
-            </li>
-            <li>
-              <strong>Country:</strong> {genderData.country}
-            </li>
-            <li>
-              <strong>Probability:</strong> {genderData.probability}%
-            </li>
-            <li>
-              <strong>Remaining requests:</strong>{" "}
-              {genderData.remaining_credits}
-            </li>
-          
-        </div>
-      )}
-    </div>
-  );
+          <li>
+            <strong>Country:</strong> {genderData.country}
+          </li>
+          <li>
+            <strong>Probability:</strong> {genderData.probability}%
+          </li>
+          <li>
+            <strong>Remaining requests:</strong> {genderData.remaining_credits}
+          </li>
+        </ul>
+      </div>
+    )}
+  </div>
+);
 }
