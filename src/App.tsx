@@ -8,11 +8,18 @@ import ProfileCard from "./components/ProfileCard/ProfileCard";
 import { Counter } from "./components/Counter/Counter";
 import PersonalGreeting from "./components/PersonalGreeting/PersonalGreeting";
 import WeightCalculator from "./components/WeightCalculator/WeightCalculator";
+import SpaceMissionForm from "./components/SpaceMissionForm";
+import Demo from "./components/Demo";
+import { AgePredictor } from "./components/AgePredictotr/AgePredictor";
+
 
 function App() {
   
   return (
-    <>
+    <><AgePredictor />
+      <SpaceMissionForm />
+      <Demo />
+      
       <Greeting name={"Vasiliy"} />
       <Greeting name={"Pety"} age={18} />
       <PersonalGreeting />
