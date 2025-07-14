@@ -15,6 +15,8 @@ import AccountSettings from "../components/AccountSettings/AccountSettings";
 import AccountInfo from "../components/AccountInfo/AccountInfo";
 import { ProductsList } from "../components/ProductsList/ProductsList";
 import ProductPage from "../pages/ProductsPage/ProductPage";
+import { UsersPage } from "../pages/UsersList/UsersPage";
+import { UserPage } from "../pages/UserPage/UserPage";
 
 export default function AppRoutes() {
   return (
@@ -57,6 +59,8 @@ export default function AppRoutes() {
             />
             <Route path={ROUTES.ACCOUNT_INFO} element={<AccountInfo />} />
           </Route>
+          <Route path={ROUTES.USERS} element={<UsersPage />} />
+          <Route path={ROUTES.USERS + "/:id"} element={<UserPage />} />
         </Route>
       </Routes>
     </>
