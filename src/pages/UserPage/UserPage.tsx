@@ -27,6 +27,6 @@ export const UserPage = () => {
   }, [id]);
 
   return (
-    <div>{message ? <div>{message}</div> : <div>Карточка юзера</div>}</div>
+    <div>{message ? <div>{message}</div> : <div>{user?.email}</div>}</div>
   );
 };

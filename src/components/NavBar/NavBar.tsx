@@ -35,6 +35,7 @@ export const NavBar = () => {
           Products
         </NavLink>
         <NavLink to="/users" className={classSelector}>Users</NavLink>
+        <NavLink to={ROUTES.LOGIN} className={classSelector}>Sign in</NavLink>
       </nav>
     </>
   );

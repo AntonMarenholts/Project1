@@ -17,6 +17,7 @@ import { ProductsList } from "../components/ProductsList/ProductsList";
 import ProductPage from "../pages/ProductsPage/ProductPage";
 import { UsersPage } from "../pages/UsersList/UsersPage";
 import { UserPage } from "../pages/UserPage/UserPage";
+import Login from "../pages/Login/Login";
 
 export default function AppRoutes() {
   return (
@@ -25,6 +26,8 @@ export default function AppRoutes() {
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Home />} />
           <Route path={ROUTES.REGISTRATION} element={<Registration />} />
+          <Route path={ROUTES.LOGIN} element={<Login />} />
+
           <Route
             path={ROUTES.GENDER_DETERMINATION}
             element={<GenderDetermination />}
