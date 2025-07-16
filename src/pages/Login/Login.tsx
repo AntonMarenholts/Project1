@@ -1,6 +1,10 @@
 import { Formik, Form, Field } from "formik";
 import { useState } from "react";
 import * as Yup from "yup";
+
+import { useCurrentUser } from "../../hooks/useCurrentUser";
+import { useNavigate } from "react-router-dom";
+
 const SignupSchema = Yup.object().shape({
   password: Yup.string()
     .required("Required")
@@ -16,6 +20,11 @@ interface Credentials {
 }
 const Login = () => {
   const [message, setMessage] = useState("");
+  const  {setIsAuthorized } =  useCurrentUser();
+  const navigate = useNavigate();
+
+
+
   async function fetchLogin(credentials: Credentials) {
     const res = await fetch("https://api.escuelajs.co/api/v1/auth/login", {
       method: "POST",
@@ -24,8 +33,17 @@ const Login = () => {
     });
     if (res.ok) {
       setMessage("Successfuly signed in");
+
+      const {access_token} = await res.json();
+      localStorage.setItem("accessToken",access_token);
+      localStorage.setItem("isAuthorized","true");
+      setIsAuthorized(true);
+      navigate("/account");
     }
   }
+
+  
+
   return (
     <div>
       <h1>Signin</h1>

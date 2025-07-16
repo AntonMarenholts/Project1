@@ -18,6 +18,8 @@ import ProductPage from "../pages/ProductsPage/ProductPage";
 import { UsersPage } from "../pages/UsersList/UsersPage";
 import { UserPage } from "../pages/UserPage/UserPage";
 import Login from "../pages/Login/Login";
+import CreateProduct from "../pages/CreateProduct/CreateProduct";
+import Galery from "../components/Galery/Galery";
 
 export default function AppRoutes() {
   return (
@@ -64,6 +66,8 @@ export default function AppRoutes() {
           </Route>
           <Route path={ROUTES.USERS} element={<UsersPage />} />
           <Route path={ROUTES.USERS + "/:id"} element={<UserPage />} />
+          <Route path={ROUTES.ADD_PRODUCTS} element={<CreateProduct />} />
+          <Route path={"/galery"} element={<Galery />} />
         </Route>
       </Routes>
     </>
