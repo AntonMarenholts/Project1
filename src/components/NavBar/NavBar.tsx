@@ -60,6 +60,12 @@ export const NavBar = () => {
         <NavLink to={"/galery"} className={classSelector}>
           Galery
         </NavLink>
+        <NavLink to={"/toogle-card"} className={classSelector}>
+          Toogle Card
+        </NavLink>
+        <NavLink to={"/parent"} className={classSelector}>
+          Parent
+        </NavLink>
         {user?.email}
         {counter}
 

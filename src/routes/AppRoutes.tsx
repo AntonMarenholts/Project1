@@ -20,6 +20,9 @@ import { UserPage } from "../pages/UserPage/UserPage";
 import Login from "../pages/Login/Login";
 import CreateProduct from "../pages/CreateProduct/CreateProduct";
 import Galery from "../components/Galery/Galery";
+import { ToogleCard } from "../components/ToggleCard/ToogleCard";
+import { Parent } from "../components/Parent/Parent";
+
 
 export default function AppRoutes() {
   return (
@@ -68,6 +71,8 @@ export default function AppRoutes() {
           <Route path={ROUTES.USERS + "/:id"} element={<UserPage />} />
           <Route path={ROUTES.ADD_PRODUCTS} element={<CreateProduct />} />
           <Route path={"/galery"} element={<Galery />} />
+          <Route path={"/toogle-card"} element={<ToogleCard />} />
+          <Route path={"/parent"} element={<Parent />} />
         </Route>
       </Routes>
     </>
