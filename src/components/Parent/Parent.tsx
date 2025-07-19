@@ -1,12 +1,23 @@
 import { cn } from "clsx-for-tailwind";
-import { useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import AptonKid from "./AptonKid";
 import Frederika from "./Frederica";
 
+function getBall() {
+  return { title: "Ball" };
+}
 export const Parent = () => {
-    console.log("Parent rendered");
+  console.log("Parent rendered");
+
   const [isBlue, setBlue] = useState(false);
-  const ball = "Ball";
+
+  const [counter, setCounter] = useState(0);
+
+  const ball = useMemo(getBall, []);
+
+  const paintGiraffe = useCallback(() => {
+    console.log("Picture of giraffe");
+  }, []);
 
   return (
     <div className="border bg-amber-200 m-4">
@@ -23,7 +34,14 @@ export const Parent = () => {
       >
         change color
       </button>
-      <AptonKid toy= {ball} />
+      <p>Counter: {counter}</p>
+      <button
+        type="button"
+        onClick={() => {
+          setCounter((prev) => prev + 1);
+        }}
+      >+1</button>
+      <AptonKid toy={ball} paint={paintGiraffe} />
       <Frederika />
     </div>
   );
